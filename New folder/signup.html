@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>تسجيل جديد</title>
+</head>
+<body style="background-color: #121212; color: white; font-family: sans-serif; text-align: center; padding: 40px;">
+
+  <h2>إنشاء حساب جديد</h2>
+  <input type="text" id="name" placeholder="اسمك" style="padding: 10px;"><br><br>
+  <input type="email" id="email" placeholder="البريد الإلكتروني" style="padding: 10px;"><br><br>
+  <input type="password" id="password" placeholder="كلمة المرور" style="padding: 10px;"><br><br>
+  <button onclick="register()" style="padding: 10px 30px; background: #00c9a7; color: black;">إنشاء حساب</button>
+  <p id="msg" style="margin-top: 20px;"></p>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDiPMV3dG0lKttvCppAKJ40mkH9n4qRtQQ",
+      authDomain: "mostaqbalna-6ed74.firebaseapp.com",
+      projectId: "mostaqbalna-6ed74",
+      storageBucket: "mostaqbalna-6ed74.firebasestorage.app",
+      messagingSenderId: "407509548154",
+      appId: "1:407509548154:web:3c2aa26ae1eaf817674fc3"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    function register() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const msg = document.getElementById('msg');
+      msg.innerText = 'جاري التسجيل...';
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(userCred => {
+          return db.collection('students').doc(userCred.user.uid).set({
+            name: name,
+            email: email,
+            createdAt: new Date()
+          });
+        })
+        .then(() => {
+          msg.innerText = '✅ تم إنشاء الحساب بنجاح!';
+        })
+        .catch(err => {
+          msg.innerText = '❌ خطأ: ' + err.message;
+        });
+    }
+  </script>
+
+</body>
+</html>

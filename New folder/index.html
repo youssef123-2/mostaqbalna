@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>منصة مستقبلنا</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #0c0c0c;
+      color: #fff;
+    }
+
+    header {
+      background-color: #1b1b1b;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    header h1 {
+      font-size: 22px;
+      color: #00c9a7;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      color: #00c9a7;
+    }
+
+    .hero {
+      background: url('images/hero-bg.png') no-repeat center center/cover;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .hero h2 {
+      position: relative;
+      z-index: 1;
+      font-size: 32px;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .courses-section {
+      padding: 40px 20px;
+      background-color: #121212;
+    }
+
+    .courses-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #00c9a7;
+      font-size: 24px;
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .course {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+      position: relative;
+    }
+
+    .course:hover {
+      transform: translateY(-5px);
+    }
+
+    .course img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .course-content {
+      padding: 15px;
+    }
+
+    .course-content h3 {
+      color: #00c9a7;
+      margin-bottom: 10px;
+    }
+
+    .course-content p {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .subscribe-btn {
+      display: inline-block;
+      background-color: #00c9a7;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .subscribe-btn:hover {
+      background-color: #00a18a;
+    }
+
+    .lock-icon {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 0, 0, 0.8);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #0d0d0d;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero h2 {
+        font-size: 22px;
+      }
+
+      .subscribe-btn {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      footer {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header data-aos="fade-down">
+    <h1>منصة مستقبلنا</h1>
+    <nav>
+      <a href="#">الرئيسية</a>
+      <a href="#">الكورسات</a>
+      <a href="#">تواصل معنا</a>
+      <a href="login.html">تسجيل الدخول</a>
+    </nav>
+  </header>
+
+  <div class="hero" data-aos="fade-in" data-aos-duration="1500">
+    <h2>طريقك للتفوق في الثانوية العامة</h2>
+  </div>
+
+  <section class="courses-section">
+    <h2 data-aos="fade-up">الكورسات المتاحة</h2>
+    <div class="courses">
+
+      <div class="course" data-aos="zoom-in" data-aos-delay="100">
+        <span class="lock-icon">🔒 250$</span>
+        <img src="./ميس دنيا.jpg" alt="كورس إنجليزي">
+        <div class="course-content">
+          <h3>اللغة الإنجليزية</h3>
+          <p>شرح شامل لأهم الدروس والجرامر والأسئلة المتوقعة.</p>
+          <a href="https://wa.me/201500231616?text=أرغب بالاشتراك في كورس اللغة الإنجليزية" target="_blank" class="subscribe-btn">اشترك الآن</a>
+        </div>
+      </div>
+
+      <div class="course" data-aos="zoom-in" data-aos-delay="200">
+        <span class="lock-icon">🔒 250$</span>
+        <img src="./محمد صلاح.jpg" alt="كورس اللغه العربيه">
+        <div class="course-content">
+          <h3>اللغة العربية</h3>
+          <p>فيديوهات مبسطة مع تدريبات وحلول لجميع الأسئلة الصعبة.</p>
+          <a href="https://wa.me/201500231616?text=أرغب بالاشتراك في كورس اللغة العربية" target="_blank" class="subscribe-btn">اشترك الآن</a>
+        </div>
+      </div>
+
+      <div class="course" data-aos="zoom-in" data-aos-delay="300">
+        <span class="lock-icon">🔒 250$</span>
+        <img src="./0cc3fc174590833.Y3JvcCwxMDgwLDg0NCwwLDExNw.jpg" alt="كورس رياضيات">
+        <div class="course-content">
+          <h3>الرياضيات</h3>
+          <p>طرق حل جديدة وأفكار عبقرية لكل الفروع (جبر، هندسة، تفاضل).</p>
+          <a href="https://wa.me/201500231616?text=أرغب بالاشتراك في كورس الرياضيات" target="_blank" class="subscribe-btn">اشترك الآن</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    جميع الحقوق محفوظة © منصة مستقبلنا 2025<br>
+    تم التصميم بواسطة يوسف محمد عبد النبي
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
